@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 /**
  * Creates an Enigma machine based on command-line arguments, and reads the message
  * from the user on STDIN. Decrypts/Encrypts using the enigma class.
