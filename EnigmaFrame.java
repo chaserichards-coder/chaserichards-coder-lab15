@@ -86,7 +86,7 @@ private void processText(boolean encrypt) {
       int middle = (int) middleRotor.getSelectedItem();
       int outer = (int) outerRotor.getSelectedItem();
 
-      // Get starting positions
+      // Get starting positions, checks if user inputs at least 3, if not then prompt user to input 3.
       String start = startPositions.getText().trim();
       if (start.length() != 3) {
           JOptionPane.showMessageDialog(this, "Enter exactly 3 starting characters!", "Error", JOptionPane.ERROR_MESSAGE);
@@ -96,12 +96,14 @@ private void processText(boolean encrypt) {
       // Create Enigma instance
       Enigma enigma = new Enigma(inner, middle, outer, start);
 
-      // Get input and process
+      //Retrieves what user inputs into input text area, replaceAll removes all whitespaces and makes them nothing
+      //converts letters to uppercase because enigma mainly works with uppercase letters.
       String input = inputText.getText().replaceAll("\\s", "").toUpperCase();
+      //result is equal to encrypt or decrypt of the altered input.
       String result = encrypt ? enigma.encrypt(input) : enigma.decrypt(input);
-
+      //sets output equal to the result variable
       outputText.setText(result);
-
+      // if encrypt or decrypt unsuccessful due to some issue it will display an error message.
   } catch (Exception ex) {
       JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
   }
