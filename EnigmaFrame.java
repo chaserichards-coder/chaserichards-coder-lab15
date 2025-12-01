@@ -56,14 +56,19 @@ public class EnigmaFrame extends JFrame{
   
       add(top, BorderLayout.NORTH);
   //CENTER TEXT AREAS 
+  //Jpanel used to format input and output text.
   JPanel textPanel = new JPanel(new GridLayout(2, 1, 5, 5));
-  //allowing us to input what we want to encrypt or decrypt
+  //initialize input.
   inputText = new JTextArea();
+  //creates a inputtext named input.
   inputText.setBorder(BorderFactory.createTitledBorder("Input"));
+  //creates a scrollbar
   textPanel.add(new JScrollPane(inputText));
-//allows us to write in output
+  //initialize output
   outputText = new JTextArea();
+  //creates the outputtext with the title being output.
   outputText.setBorder(BorderFactory.createTitledBorder("Output"));
+  //creates a scrollbar
   textPanel.add(new JScrollPane(outputText));
 
   add(textPanel, BorderLayout.CENTER);
